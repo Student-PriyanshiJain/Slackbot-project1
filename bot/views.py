@@ -142,7 +142,7 @@ def handle_view_submission(ack, body, client, logger):
             tmp_file_path = tmp_file.name
 
         client.files_upload_v2(
-            channel="C08LU849W2G",
+            channel=os.environ.get("CHANNEL_ID"),
             file=tmp_file_path,
             filetype="csv",
             filename="google_sheet.csv",
