@@ -141,10 +141,11 @@ def handle_view_submission(ack, body, client, logger):
             tmp_file.write(csv_data.encode("utf-8"))
             tmp_file_path = tmp_file.name
 
+        # with open(tmp_file_path, "rb") as f:
         client.files_upload_v2(
             channel=os.environ.get("CHANNEL_ID"),
             file=tmp_file_path,
-            filetype="csv",
+            # filetype="csv",
             filename="google_sheet.csv",
             title="Here's your CSV file from Google Sheet"
         )
